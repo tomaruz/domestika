@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas width="600" height="600"></canvas>
+    <script>
+
+        // creating a canvas to draw on
+
+        // setting a value of a variable called canvas to an expression.
+        // it starts with document, which is a JavaScript object to refer to this HTML document.
+        // the dot indicates we want something that is part of that object, in this case a function called querySelector.
+        // querySelector function selects an element from the document.
+        // we need to give the name of the element we want to select.
+        // and the name is a string, that why we are passing canvas inside single quotes.
+        let canvas = document.querySelector('canvas');
+        // context is where we do the drawing, it can be 2d or 3d
+        let context = canvas.getContext('2d');
+
+        // changing color
+        context.fillStyle = ('blue');
+
+        // fillRect is a function that takes four parameters: x, y, widht and hight
+        // we start at 0, move 100 pixels to the right, 100 pixels down
+        // and this is where we start drawing shape
+        // then we go 400 pixels to the right and 400 pixels down
+        // context.fillRect(100, 100, 400, 400);
+
+        // rect = drawing a square
+        // context.lineWidth = 7;
+        // context.beginPath();
+        // context.rect(100, 100, 400, 400);
+        // context.stroke();
+
+        // arc = drawing a circle
+        // context.beginPath();
+        // context.arc(300, 300, 150, 0, Math.PI * 2);
+        // context.stroke();
+
+
+        // using loops to draw
+        const width = 60;
+        const height = 60;
+        const gap = 20;
+
+        for (let i = 0; i < 5; i++) {
+            // if we want more rows, we need a loop inside a loop, a nested loop
+            for (let j = 0; j < 5; j++) {
+                let x = 100 + (width + gap) * i;
+                let y = 100 + (height + gap) * j;
+
+                context.beginPath();
+                context.rect(x, y, height, width);
+                context.stroke();
+
+                // only draw a small square if
+                // if (i > 0 && i < 4) {
+                //     context.beginPath();
+                //     context.rect(x + 8, y + 8, height - 16, width - 16);
+                //     context.stroke();
+                // }
+
+                // only draw a small square when Math.random is bigger than 0.5, so every tim we refresh page, we get small squares in different pages
+                if (Math.random() > 0.5) {
+                    context.beginPath();
+                    context.rect(x + 8, y + 8, height - 16, width - 16);
+                    context.stroke();
+                }
+            }
+        }
+
+        // RANDOM NUMBERS
+        // this function returns a random number between 0 and 1
+        Math.random()
+
+        // CONDITIONALS
+
+        // if(condition) {
+        //     // do something
+        // }
+        // else{
+        //     // do something else
+        // }
+
+        // VARIABLES
+
+        // x is a variable, 5 is its value
+        let x = 5;
+
+        let year = 2024;
+        // let nextYear = 2025;
+        // instead of writing this, write this!
+        let nextYear = year + 1;
+
+        // a string
+        let dinner = 'pasta';
+        let sentence = 'Tonight, dinner will be ' + dinner;
+
+
+        // FUNCTIONS
+        // a block of code that performs a task
+        // when we call a function, we are running a chunk of code
+
+        // () - declaring a function
+        // inside the {} we write what the function will do
+        function saySomething(param) {
+            console.log(param);
+        }
+
+        saySomething(sentence);
+
+        function add(a, b) {
+            // if we want a functon to perform a task and also return a value, we need add the word 'return'
+            return a + b;
+        }
+
+        let result = add(5, 7);
+        console.log(result)
+
+        // can also write functions like this
+        let multiply = (a, b) => {
+            return a * b
+        }
+
+        console.log(multiply(5, 7));
+
+        // ARRAYS
+        // arrays are lists
+
+        // a list of values
+        // we recognise it is an array because the values are inside square brackets and are seperated by commas
+        // let years = [2040, 2041, 2042];
+        let years = [];
+
+        // an array of strings
+        let menu = ['starter', 'main', 'dessert', 'drinks', 'sides'];
+
+        // LOOPS
+        // chunks of code that run again and again for a limited number of times.
+
+        // inside () we declare a variable
+        // then still inside () we declare duration or how many time we want it to run
+        // and then still inside () what we want to do to i on every iteration of the loop
+        // this loop only runs four times, so you can't see sides
+        for (let i = 0; i < 4; i++) {
+            console.log(menu[i]);
+        }
+
+        // we can replace the 4 with array lenght, in this case menu.lenght, now it doesn't matter how long the array is, we always going to go over all of the items
+        for (let i = 0; i < menu.length; i++) {
+            console.log(menu[i]);
+        }
+
+        // can use also loops to write arrays
+        // pushing values into array
+        for (let i = 0; i < 10; i++) {
+            years.push(2040 + i);
+        }
+        console.log(years);
+
+        // MORE VARIABLES
+        // use const for values that dont change
+
+        const gravity = 9.81;
+        let velocity = 0.0;
+
+
+        // forEach LOOP
+        menu.forEach(item => {
+            console.log(item)
+        });
+
+    </script>
+</body>
+
+</html>
